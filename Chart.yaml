@@ -29,3 +29,6 @@ dependencies:
     repository: https://charts.jetstack.io
     alias: certmanager
     condition: certmanager.install
+  - name: certmanager-issuer
+    version: 0.1.0
+    repository: file://charts/certmanager-issuer
