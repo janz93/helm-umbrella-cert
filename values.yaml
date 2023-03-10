@@ -1,3 +1,6 @@
+global:
+  namespace: demo-platform
+
 certmanager:
   installCRDs: true
   nameOverride: certmanager
