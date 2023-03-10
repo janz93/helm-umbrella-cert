@@ -1,0 +1,10 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: {{ .Values.DemoLetsEncryptClusterIssuer.name }}
+  namespace: {{ .Values.global.namespace }}
+  labels:
+    {{- include "certmanager-issuer.labels" . | nindent 4 }}
+spec:
+  ca:
+    secretName: local-root-cert

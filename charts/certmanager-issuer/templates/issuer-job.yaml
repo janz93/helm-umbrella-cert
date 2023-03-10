@@ -1,0 +1,35 @@
+{{ if .Values.DemoLetsEncryptClusterIssuer.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ template "certmanager-issuer.jobname" . }}
+  namespace: {{ .Values.global.namespace }}
+  labels:
+    {{- include "certmanager-issuer.labels" . | nindent 4 }}
+spec:
+  activeDeadlineSeconds: 300
+  template:
+    metadata:
+      labels:
+        {{- include "certmanager-issuer.selectorLabels" . | nindent 8 }}
+    spec:
+      securityContext:
+        # in most base images, this is `nobody:nogroup`
+        runAsUser: 65534
+        fsGroup: 65534
+      restartPolicy: OnFailure
+      containers:
+        - name: create-issuer
+          image: bitnami/kubectl:latest
+          command: ['/bin/bash', '/scripts/create-issuer', '/scripts/issuer.yml']
+          volumeMounts:
+            - name: scripts
+              mountPath: /scripts
+          resources:
+            requests:
+              cpu: 50m
+      volumes:
+        - name: scripts
+          configMap:
+            name: {{ template "certmanager-issuer.fullname" . }}
+{{- end }}
