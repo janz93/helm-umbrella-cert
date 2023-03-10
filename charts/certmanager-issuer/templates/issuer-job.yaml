@@ -17,6 +17,7 @@ spec:
         # in most base images, this is `nobody:nogroup`
         runAsUser: 65534
         fsGroup: 65534
+      serviceAccountName: {{ template "certmanager-issuer.fullname" . }}
       restartPolicy: OnFailure
       containers:
         - name: create-issuer
