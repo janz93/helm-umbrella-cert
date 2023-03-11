@@ -5,5 +5,8 @@ dependencies:
 - name: certmanager-issuer
   repository: file://charts/certmanager-issuer
   version: 0.1.0
-digest: sha256:31914169eac9b7a03b7b60790f6497f61d266a0bc1dc12ee92aab590c22147c2
-generated: "2023-03-09T17:57:54.718311+01:00"
+- name: hello-world
+  repository: file://charts/hello-world
+  version: 0.1.0
+digest: sha256:f9031035bf1e3544b516a17133a5659e1f03f7e1f7cce38c26180d92a8b21502
+generated: "2023-03-11T12:29:16.470462+01:00"
