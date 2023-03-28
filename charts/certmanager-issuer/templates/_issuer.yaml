@@ -7,4 +7,4 @@ metadata:
     {{- include "certmanager-issuer.labels" . | nindent 4 }}
 spec:
   ca:
-    secretName: local-root-cert
+    secretName: local-root-ca-tls-secrect
