@@ -9,3 +9,6 @@ certmanager:
   install: false
   rbac:
     create: true
+loadbalancer:
+  install: true
+  nameOverride: loadbalancer
