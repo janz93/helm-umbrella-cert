@@ -32,6 +32,7 @@ dependencies:
   - name: certmanager-issuer
     version: 0.1.0
     repository: file://charts/certmanager-issuer
+    condition: certmanager.install
   - name: hello-world
     version: 0.1.0
     repository: file://charts/hello-world
