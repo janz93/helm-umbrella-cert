@@ -26,10 +26,10 @@ spec:
   {{- if and .Values.ingress.className (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion) }}
   ingressClassName: {{ .Values.ingress.className }}
   {{- end }}
-  tls:
-    - hosts:
-      - "chart-example.local"
-      secretName: chart-example-tls-certificate
+  # tls:
+  #   - hosts:
+  #     - "chart-example.local"
+  #     secretName: chart-example-tls-certificate
   rules:
     {{- range .Values.ingress.hosts }}
     - host: {{ .host | quote }}

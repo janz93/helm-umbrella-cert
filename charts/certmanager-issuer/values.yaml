@@ -1,4 +1,4 @@
 DemoLetsEncryptClusterIssuer:
-  enabled: true
+  enabled: false
   name: demo-platform-issuer
   email: de.keepr-dev@sportfive.com
